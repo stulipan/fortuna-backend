@@ -1,0 +1,50 @@
+{% extends 'admin/template-listing.html.twig' %}
+
+{% set pageTitle = csillagjegyek[baseHoroscopes[0].astrologicalSign.name|lower]|capitalize ~ ' | ' ~ locale|upper ~ ' | '~ date|date("Y-m-d") %}
+{% set breadcrumb = {
+    0: {
+        'url': path('site-dashboard'),
+        'text': 'Dashboard',
+    },
+} %}
+
+{% block tableHeader %}
+    <tr>
+        <th scope="col">Csillagjegy</th>
+        <th scope="col">Base</th>
+        <th scope="col">Addendum</th>
+        <th scope="col">Unprocessed</th>
+        <th scope="col"><i class="fas fa-ellipsis-h"></i></th>
+    </tr>
+{% endblock %}
+
+{% block tableBody %}
+    {% if baseHoroscopes is defined %}
+        {% for baseHoroscope in baseHoroscopes %}
+            <tr>
+                <td class="">
+                    {{ baseHoroscope.astrologicalSign.name }} <br>
+                    <span class="text-muted">{{ csillagjegyek[baseHoroscope.astrologicalSign.name|lower]|capitalize }}</span>
+                </td>
+                <td class="">
+                    {{ baseHoroscope.content|nl2br }}
+                </td>
+                <td class="">
+                    {% if addendumHoroscopes is defined and addendumHoroscopes is not empty %}
+                        {{ addendumHoroscopes[loop.index0].content|nl2br }}
+                    {% endif %}
+                </td>
+                <td class="smallX text-muted">
+                    {{ rawHoroscopes[loop.index0].content|nl2br }}
+{#                    <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ rawHoroscopes[loop.index0].content|nl2br }}">#}
+{#                        Eredeti szöveg#}
+{#                    </button>#}
+
+                </td>
+                <td class="">
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+

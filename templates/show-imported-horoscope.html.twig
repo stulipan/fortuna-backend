@@ -1,0 +1,72 @@
+{% extends 'admin/template-with-sidebar.html.twig' %}
+
+
+{% set pageTitle = 'EzoTV-ből behúzott horoszkóp ' ~ date|date("Y-m-d") ~ ' | ' ~ locale|upper %}
+{% set breadcrumb = {
+    0: {
+        'url': path('site-dashboard'),
+        'text': 'Dashboard',
+    },
+} %}
+{#1: {#}
+{#'url': path('cms-page-list'),#}
+{#'text': 'page.pages'|trans,#}
+{#},#}
+{% set cancelUrl = path('site-dashboard') %}
+
+{% block headerActionsWrapper %}
+        <nav class="w-100 adaptive-tabs adaptive-tabs-right">
+            <ul class="nav nav-tabs adaptive-primary">
+                <li class="nav-item adaptive-item">
+                    <a class="nav-link" href="{{ path('show-rewritten', {'year': date|date("Y"), 'month': date|date("m"), 'day': date|date("d"), 'locale': 'hu'}) }}" class="btn btn-success me-2">Átírt változat</a>
+                </li>
+            </ul>
+            <ul class="adaptive-template">
+                <li class="nav-item adaptive-item adaptive-more">
+                    <a href="" class="adaptive-button nav-link dropdown-toggle btn-more-actions" aria-haspopup="true" aria-expanded="false">
+                        <span>Bővebben</span>
+                    </a>
+                    <ul class="adaptive-secondary">
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="card mb-20px">
+{#    <div class="card-body">#}
+{#        <h3>EzoTV-ből behúzott horoszkóp | {{ date|date("Y-m-d") }}</h3>#}
+{#    </div>#}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            {% for horoscope in horoscopes %}
+                <tr>
+                    <td class="">
+                        {{ horoscope.astrologicalSign.name }} <br>
+                        <span class="text-muted">{{ csillagjegyek[horoscope.astrologicalSign.name|lower]|capitalize }}</span>
+                    </td>
+                    <td class="">
+                        {{ horoscope.content|nl2br }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+    <div class="pe-5">&nbsp;</div>
+{% endblock %}
+
+{% block sidebar %}
+<ul class="list-group bg-white">
+    {% for sign in signs  %}
+        <li class="list-group-item">
+{#            {{ sign }} | #}
+            <a href="{{ path('rewrite-horoscope', {'year': date|date("Y"), 'month': date|date("m"), 'day': date|date("d"), 'sign': sign, 'locale': locale}) }}" class="" target="_blank">
+                {{ path('rewrite-horoscope', {'year': date|date("Y"), 'month': date|date("m"), 'day': date|date("d"), 'sign': sign, 'locale': locale}) }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block page_content %}
+    <div class="row mt-3">
+        <div class="col-lg-12 col-xl-10 mx-auto">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mb-20px mb-3">
+                        <div class="">
+                            <h3>Import from EzoTV</h3>
+                        </div>
+                        <div class="vertical-row">
+                            <div class="vertical-col">
+                                <button class="btn btn-secondary me-2">FORT HU</button>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('import-from-ezotv', {'year': today|date("Y"), 'month': today|date("m"), 'day': today|date("d"), 'locale': 'hu'}) }}" class="btn btn-success me-2">{{ today|date('Y-m-d') }}</a>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('import-from-ezotv', {'year': tomorrow|date("Y"), 'month': tomorrow|date("m"), 'day': tomorrow|date("d"), 'locale': 'hu'}) }}" class="btn btn-success me-2">{{ tomorrow|date('Y-m-d') }}</a>
+                            </div>
+                        </div>
+                        <div class="vertical-row">
+                            <div class="vertical-col">
+                                <button class="btn btn-secondary me-2">LUNA RO</button>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('import-from-ezotv', {'year': today|date("Y"), 'month': today|date("m"), 'day': today|date("d"), 'locale': 'ro'}) }}" class="btn btn-primary me-2">{{ today|date('Y-m-d') }}</a>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('import-from-ezotv', {'year': tomorrow|date("Y"), 'month': tomorrow|date("m"), 'day': tomorrow|date("d"), 'locale': 'ro'}) }}" class="btn btn-primary me-2">{{ tomorrow|date('Y-m-d') }}</a>
+                            </div>
+                        </div>
+                        <div class="vertical-row">
+                            <div class="vertical-col">
+                                <button class="btn btn-secondary me-2">LUNA XX</button>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('import-from-ezotv', {'year': today|date("Y"), 'month': today|date("m"), 'day': today|date("d"), 'locale': 'xx'}) }}" class="btn btn-danger me-2">{{ today|date('Y-m-d') }}</a>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('import-from-ezotv', {'year': tomorrow|date("Y"), 'month': tomorrow|date("m"), 'day': tomorrow|date("d"), 'locale': 'xx'}) }}" class="btn btn-danger me-2">{{ tomorrow|date('Y-m-d') }}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-20px mb-3">
+                        <div class="">
+                            <h3>Beimportált horoszkópok</h3>
+                        </div>
+                        <div class="vertical-row">
+                            <div class="vertical-col">
+                                <button class="btn btn-secondary me-2">FORT HU</button>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('show-rewritten', {'year': today|date("Y"), 'month': today|date("m"), 'day': today|date("d"), 'locale': 'hu'}) }}" class="btn btn-link me-2">{{ today|date('Y-m-d') }}</a>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('show-rewritten', {'year': tomorrow|date("Y"), 'month': tomorrow|date("m"), 'day': tomorrow|date("d"), 'locale': 'hu'}) }}" class="btn btn-link me-2">{{ tomorrow|date('Y-m-d') }}</a>
+                            </div>
+                        </div>
+                        <div class="vertical-row">
+                            <div class="vertical-col">
+                                <button class="btn btn-secondary me-2">LUNA RO</button>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('show-rewritten', {'year': today|date("Y"), 'month': today|date("m"), 'day': today|date("d"), 'locale': 'ro'}) }}" class="btn btn-link me-2">{{ today|date('Y-m-d') }}</a>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('show-rewritten', {'year': tomorrow|date("Y"), 'month': tomorrow|date("m"), 'day': tomorrow|date("d"), 'locale': 'ro'}) }}" class="btn btn-link me-2">{{ tomorrow|date('Y-m-d') }}</a>
+                            </div>
+                        </div>
+                        <div class="vertical-row">
+                            <div class="vertical-col">
+                                <button class="btn btn-secondary me-2">LUNA XX</button>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('show-rewritten', {'year': today|date("Y"), 'month': today|date("m"), 'day': today|date("d"), 'locale': 'xx'}) }}" class="btn btn-link me-2">{{ today|date('Y-m-d') }}</a>
+                            </div>
+                            <div class="vertical-col">
+                                <a href="{{ path('show-rewritten', {'year': tomorrow|date("Y"), 'month': tomorrow|date("m"), 'day': tomorrow|date("d"), 'locale': 'xx'}) }}" class="btn btn-link me-2">{{ tomorrow|date('Y-m-d') }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12 correction-no-paddingX mt-20px">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="h3 card-title">Átírt horoszkópok</div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                            {% for horoscope in finalHoroscopes %}
+                                <tr>
+                                    <td class="">
+                                        <a href="{{ path('show-rewritten', {'year': horoscope.date|date('Y'), 'month': horoscope.date|date("m"), 'day': horoscope.date|date("d"), 'locale': 'hu'}) }}">{{ horoscope.date|date('Y-m-d') }}</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+{#                <div class="col-lg-12 correction-no-padding mt-20px mb-20px mb-3">#}
+{#                    <div class="card">#}
+{#                        <div class="card-body">#}
+{#                            <div class="h3 card-title">{{ 'dashboard.your-store-and-company-details'|trans }}</div>#}
+{#                            <div class="row">#}
+{#                                <div class="col-lg-6 pb-2 pb-md-0">#}
+{#                                    {{ 'settings.general-settings.store-name'|trans }}: <span class="text-muted">{{ storeSettings.get('store.name') }}</span> <br>#}
+{#                                    {{ 'settings.general-settings.store-url'|trans }}: <span class="text-muted">{{ storeSettings.get('store.url') }}</span> <br>#}
+{#                                    {{ 'settings.general-settings.customer-support'|trans }}: <span class="text-muted">{{ storeSettings.get('store.email') }}, {{ storeSettings.get('store.phone') }}</span>#}
+{#                                </div>#}
+{#                                <div class="col-lg-6">#}
+{#                                    {{ 'settings.general-settings.business-name'|trans }}: <span class="text-muted">{{ storeSettings.get('company.name') }}</span> <br>#}
+{#                                    {{ 'settings.general-settings.business-address'|trans }}: <span class="text-muted">{{ storeSettings.get('company.address') }}, {{ storeSettings.get('company.city') }} {{ storeSettings.get('company.zip') }}</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="mt-4">#}
+{#                                <a href="{{ path('settings-general') }}" class="btn btn-secondary me-2"><i class="fas fa-store me-2"></i>{{ 'dashboard.edit-store-details'|trans }}</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-12 col-xl-10 mx-auto">
+{#            <div class="row">#}
+                Dátum formátum: Y-m-d
+{#            </div>#}
+        </div>
+    </div>
+{% endblock %}

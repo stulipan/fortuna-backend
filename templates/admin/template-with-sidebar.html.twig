@@ -1,0 +1,80 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{%- block title -%}
+    {{ pageTitle }}
+{%- endblock -%}
+
+{% block page_content %}
+    <div {% block dataSection %}{% endblock %}>
+
+        {% block modal %}
+        {% endblock %}
+
+        <div class="row">
+            <div class="col-lg-12 col-xl-11 mx-auto">
+
+                    {% block header %}
+                        <div class="row mt-1 mt-md-3">
+                            <div class="col-lg-12 mt-2">
+                                <div class="header-wrapper">
+                                    <div class="header-goback d-print-none">
+                                        <div class="x">
+                                            {% if breadcrumb is defined and breadcrumb is not empty %}
+                                                {% for item in breadcrumb %}
+                                                    {% if loop.last %}
+                                                    <a href="{{ item.url }}" class="btn btn-secondary btn-go-back"></a>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="header-title">
+                                        <div class="d-flex flex-md-row align-items-center flex-wrap">
+                                            <div class="d-flex">
+                                                {% block headerTitleWrapper %}
+                                                <div class="page-title h3 d-inline me-md-2 me-1">{% block headerTitle %}{{ pageTitle }}{% endblock %}</div>
+                                                {% endblock %}
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                {% block headerStatusWrapper %}
+                                                {% endblock %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="header-actions d-print-none">
+                                        {% block headerActionsWrapper %}
+                                        {% endblock %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+
+                    {% block beforeContent %}
+                    {% endblock %}
+
+                    {% block mainContent %}
+                    <div class="row mt-3">
+                        <div class="col-md-8 correction-no-paddingX">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                        <div id="__SIDEBAR" class="col-md-4 correction-no-paddingX">
+                            {% block sidebar %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                    {% endblock %}
+
+                    {% block additionalContent %}
+                    {% endblock %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
