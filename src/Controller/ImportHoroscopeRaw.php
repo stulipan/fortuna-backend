@@ -527,7 +527,7 @@ class ImportHoroscopeRaw extends AbstractController
 
 //        return "Ne hagyd ki az ajánlatot csak azért, mert ismeretlen területen kellene dolgoznod. Gondold át, milyen tapasztalataidat tudod felhasználni, és kikhez fordulhatsz tanácsért, ha elakadsz. Légy nyitott és tekintsd ezt a feladatot lehetőségként, ahol sokat tanulhatsz, és olyan tudást szerezhetsz, amit csak a gyakorlatban lehet megszerezni. Az alkalom most adott neked, hogy továbbléphess. Ne félj a kihívástól, hanem vedd fel a kesztyűt, és légy nyitott az új lehetőségekre. Ha bátorságot mutatsz, akkor olyan dolgokat érhetsz el, amiket korábban nem is gondoltál volna. Az új területen való munka lehetőséget ad arra, hogy bővítsd a tudásodat és fejleszd a képességeidet. Ne hagyd ki ezt az alkalmat, mert ez lehet az újabb lépés a karrieredben.";
 
-        $apiKey = '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';
+        $apiKey = $_ENV['CGPT_KEY'];
 
         $prompt = sprintf(
 " 
