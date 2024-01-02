@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="35952754-ffc8-4b55-ba7d-52b767099d06" name="fortuna.tulipanfutar.hu" url="https://fortuna.tulipanfutar.hu/">
+        <fileTransfer rootFolder="/fortuna.tulipanfutar.hu" host="ftp.tulipanfutar.hu" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

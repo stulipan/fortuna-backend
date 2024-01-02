@@ -16,14 +16,14 @@ class AstrologicalSign
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      *
-     * @Groups({"horoscopeList", "bundled"})
+     * @Groups({"horoscopeList", "bundled", "horoscopeText", "astrologicalSign", "horoscopeTextPublished"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      *
-     * @Groups({"horoscopeList", "bundled"})
+     * @Groups({"horoscopeList", "bundled", "horoscopeText", "astrologicalSign", "horoscopeTextPublished"})
      */
     private $name;
 
@@ -42,7 +42,7 @@ class AstrologicalSign
     /**
      * @ORM\Column(type="string", length=100)
      *
-     * @Groups({"horoscopeList", "bundled"})
+     * @Groups({"horoscopeList", "bundled", "horoscopeText", "astrologicalSign", "horoscopeTextPublished"})
      */
     private $slug;
 

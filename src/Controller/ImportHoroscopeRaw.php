@@ -29,38 +29,39 @@ class ImportHoroscopeRaw extends AbstractController
         $tomorrow = new \DateTime('tomorrow');
         $afterTomorrow = new \DateTime('now +2 day');
 
-//        $finalHoroscopes = $em->getRepository(HoroscopeFinal::class)->();
-        $finalHoroscopes = $em->getRepository(HoroscopeFinal::class)->createQueryBuilder('e')
-            ->select('e.date')
-//            ->select('e.astrologicalSign')
-//            ->where('e.date LIKE :date')
-//            ->setParameter(':date', $date->format(Enums::DATE_FORMAT)."%") // LIKE '2023-04-21%'
-//            ->andWhere('e.type = :type')
-//            ->setParameter(':type', 'base')
-            ->groupBy('e.date')
-            ->orderBy('e.date', 'DESC')
-            ->getQuery()
-            ->getResult()
-        ;
+//        $finalHoroscopes = $em->getRepository(HoroscopeFinal::class)->createQueryBuilder('e')
+//            ->select('e.date')
+////            ->select('e.astrologicalSign')
+////            ->where('e.date LIKE :date')
+////            ->setParameter(':date', $date->format(Enums::DATE_FORMAT)."%") // LIKE '2023-04-21%'
+////            ->andWhere('e.type = :type')
+////            ->setParameter(':type', 'base')
+//            ->groupBy('e.date')
+//            ->orderBy('e.date', 'DESC')
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//
+//        $query = $em->createQueryBuilder()
+//            ->select('hf.date', 'a.name as astrologicalSign', 'hf.content')
+//            ->from(HoroscopeFinal::class, 'hf')
+//            ->join('hf.astrologicalSign', 'a')
+//            ->orderBy('hf.date', 'ASC')
+//            ->addOrderBy('a.id', 'ASC')
+//            ->getQuery();
+//
+//        $results = $query->getResult();
+//
+////        dd($results);
+////        dd($finalHoroscopes);
 
-        $query = $em->createQueryBuilder()
-            ->select('hf.date', 'a.name as astrologicalSign', 'hf.content')
-            ->from(HoroscopeFinal::class, 'hf')
-            ->join('hf.astrologicalSign', 'a')
-            ->orderBy('hf.date', 'ASC')
-            ->addOrderBy('a.id', 'ASC')
-            ->getQuery();
-
-        $results = $query->getResult();
-
-//        dd($results);
-//        dd($finalHoroscopes);
 
         return $this->render('dashboard.html.twig', [
             'today' => $today,
             'tomorrow' => $tomorrow,
             'afterTomorrow' => $afterTomorrow,
-            'finalHoroscopes' => $finalHoroscopes
+            'finalHoroscopes' => [],
+//        'finalHoroscopes' => $finalHoroscopes
         ]);
     }
 
@@ -176,18 +177,18 @@ class ImportHoroscopeRaw extends AbstractController
         ;
 
         $horoscopeArray = [];
-//        $horoscopeArray['aries'] = "";
-//        $horoscopeArray['taurus'] = "";
-//        $horoscopeArray['gemini'] = "";
-//        $horoscopeArray['cancer'] = "";
-//        $horoscopeArray['leo'] = "";
-//        $horoscopeArray['virgo'] = "";
-//        $horoscopeArray['libra'] = "";
-//        $horoscopeArray['scorpio'] = "";
-//        $horoscopeArray['sagittarius'] = "";
-//        $horoscopeArray['capricorn'] = "";
-//        $horoscopeArray['aquarius'] = "";
-//        $horoscopeArray['pisces'] = "";
+        $horoscopeArray['aries'] = "Amíg a saját útját járja, képes lesz megküzdeni az akadályokkal is. Ha azonban Önre erőltetnek egy olyan feladatot, amellyel képtelen azonosulni, akkor vonuljon félre, hogy dönthessen, merre haladjon, így lesz elégedett azzal, amit teljesít. Most nem is az eredmények jelentik az Ön számára a sikert, hanem a harcok, amelyeket meg kell vívnia. De sikerülni fog és a nap végén elégedett lesz!";
+        $horoscopeArray['taurus'] = "Tegyen különbséget a valódi problémák és az olyan gondok között, amelyek csak a gondolatait zavarják össze.  Ki kell választania a lényeges kérdéseket, azokkal foglalkozzon, minden más esetben tudjon nemet mondani. Legyen határozott, amivel egyértelművé teszi a környezetében élők számára, hogy vannak kitűzött céljai. És a környezete el fogja fogadni, elismerően fognak Önre tekinteni.";
+        $horoscopeArray['gemini'] = "Sokszor már az is nagy segítség lehet, ha valakit meghallgatnak. Önhöz fordulnak tanácsért, hiszen nyugalmat, tudást, magabiztosságot sugároz, és ebből szeretnének erőt meríteni. Nem is kell megoldásokat keresnie, csak csendben figyelni és engedni, hogy a másik fél szavakba önthesse a problémáját. Töretlen népszerűségét annak köszönheti, hogy megadja a keresett válaszokat.";
+        $horoscopeArray['cancer'] = "Döntenie kell, az eszére vagy a szívére hallgasson. Jó ha az ösztönei vezérlik. Ha már elindult, ne azt mérlegelje, mi lett volna, ha a másik utat választja, éljen azzal a lehetőséggel, amely mellett letette a voksát. Az így elért eredményeket ugyanúgy a kimagasló teljesítményének köszönheti. Legyen ezért elszánt és határozott, ne sokat habozzon, és remek napja lesz!";
+        $horoscopeArray['leo'] = "Ha már eldöntötte, ne habozzon túl sokáig, induljon el. Bár még bizonyos lépéseket nem dolgozott ki, de a lendülete viszi előre. Sikeresen és észrevétlenül veheti azokat az akadályokat is, melyekre nem készült fel. Most van lehetősége megvalósítani ezt a tervét. Tele van energiával, így a határidős kötelezettségeit is képes elvégezni, emiatt sem kell aggódnia, remek napja lesz!";
+        $horoscopeArray['virgo'] = "Ön is tudja, a problémát csak úgy lehet megoldani, ha leás a gyökeréig. Ehhez ugyan fel kell tennie kényes kérdéseket, de meg tudja azokat válaszolni, és használja ki az alkalmat, hogy kevesebb a kötelezettsége. Így kellő türelemmel nyithat azok felé, akik elkísérhetik Önt azon az úton, ami meghozza a kívánt eredményeket is. Remek napja lesz!";
+        $horoscopeArray['libra'] = "Rögtönöznie kell de gondoljon a céljaira, fogadja el, hogy ezek a elkerülhetetlenek, ha szeretné megvalósítani azokat. Áldozatok nélkül ugyanis nincsenek eredmények, ezt már tudja, ahogy azt is, hogy milyen remek eredményeket tud elérni. Most csak ismét bebizonyíthatja, hogy az elszántsága csodákat képes alkotni!";
+        $horoscopeArray['scorpio'] = "Ne habozzon, induljon el! ma egy nagyszerű nap elébe néz, érdemes nekivágni az útnak! A siker nem hullik az ölébe, de meg fogja kapni. Pontosan ismer mindent, magabiztos, rendelkezik a megfelelő tudással. Bízzon a képességeiben, amik olyan sokszor sikerre vitték az életben. És ma sem lesz másként! A tudása, türelme, elszántsága sikerrel zárja majd a napját.";
+        $horoscopeArray['sagittarius'] = "Ragaszkodik ahhoz, hogy az irányítást a kezében tartsa. Emiatt könnyű hibázni, és előfordul, hogy azt veszi észre, hogy nem jönnek az eredmények. De ez mind Önön múlik! A mai napon az energiáit fordítsa arra, hogy járja a saját útját, és foglalkozzon olyan kérdésekkel, amelyek közelebb viszik a céljaihoz! Ha így tesz, vezető szerepben marad és csodálatos napja lesz!  ";
+        $horoscopeArray['capricorn'] = "Úgy tűnik, mintha az ölébe hullottak volna az eredmények, de a kívülállók nem láthatják, mennyi munkát fektetett abba, hogy most csak könnyedén besétáljon a célba. Fontos, hogy Ön tisztában van azzal, mennyi lemondás árán ért el idáig. Most pedig minden oka megvan arra, hogy ünnepeljen, nagyon is megérdemli. Remek napja lesz, élvezze ki!";
+        $horoscopeArray['aquarius'] = "Ne engedje, hogy becsukódjon Ön előtt az ajtó! Ügyes szervezéssel megoldhatja, hogy éljen a lehetőséggel, de a kötelezettségeit is elvégzi. Fogadja el a felkínált segítséget! Ne kapkodjon, lépésről lépésre haladjon, így el fogja kerülni az olyan akadályokat, amelyek lelassítanák, esetleg meg is hiúsítanák az elképzeléseit, az álmait. Remek nap elébe néz!";
+        $horoscopeArray['pisces'] = "Vegye észre a lehetőségeket! Legyen nyitott és fogékony az újdonságokra, mert ezek által léphet előre. El kell indulnia az úton, ha valóban fontosnak tartja a célt, amelyet kitűzött erre a napra. Bár úgy tűnik, van még ideje, de bizonyos folyamatoknak be kell érnie. A határozottsága és a tapasztalata azonban pontosan megmutatja, mit is kell tennie és sikeres lesz.";
 //
 //        $horoscopeArray['aries'] = "";
 //        $horoscopeArray['taurus'] = "";

@@ -10,14 +10,14 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  */
 
-class ErrorEntity implements \JsonSerializable
+class EntityValidationError implements \JsonSerializable
 {
     /**
      * @var string
      *
      * @Assert\NotBlank()
      */
-    private $propertyName;
+    private $property;
 
     /**
      * @var string
@@ -26,9 +26,9 @@ class ErrorEntity implements \JsonSerializable
      */
     private $message;
 
-    public function __construct(string $propertyName, string $message)
+    public function __construct(string $property, string $message)
     {
-        $this->propertyName = $propertyName;
+        $this->property = $property;
         $this->message = $message;
     }
 
@@ -38,7 +38,7 @@ class ErrorEntity implements \JsonSerializable
     function jsonSerialize()
     {
         return [
-            'propertyName'      => $this->getPropertyName(),
+            'property'      => $this->getProperty(),
             'message'           => $this->getMessage(),
         ];
     }
@@ -46,17 +46,17 @@ class ErrorEntity implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPropertyName(): string
+    public function getProperty(): string
     {
-        return $this->propertyName;
+        return $this->property;
     }
 
     /**
-     * @param string $propertyName
+     * @param string $property
      */
-    public function setPropertyName(string $propertyName)
+    public function setProperty(string $property)
     {
-        $this->propertyName = $propertyName;
+        $this->property = $property;
     }
 
     /**

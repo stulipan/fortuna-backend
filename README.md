@@ -1,4 +1,4 @@
-# FortunaAI - Backend and API
+# Fortuna Backend & API
 
 > The admin backend for the FortunaAI project.
 

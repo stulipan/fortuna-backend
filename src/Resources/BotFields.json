@@ -1,0 +1,215 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 3939097,
+            "name": "b_01_Aries_Addendum",
+            "type": "text",
+            "description": "",
+            "value": "Így együtt tudtok dolgozni és kikapcsolódni is együtt.\n\nAz ilyen időszakok felbecsülhetetlen értékűek, hiszen lehetőséget adnak arra, hogy újra megnyíljatok egymás előtt és őszintén beszéljetek a felmerülő problémákról.\n\nAz ilyen napok lelkileg terhelőek, de ugyanakkor felemelőek is lehetnek, hiszen megerősítik a családi kötelékeket."
+        },
+        {
+            "id": 3936915,
+            "name": "b_01_Aries_Base",
+            "type": "text",
+            "description": "",
+            "value": "Az elkövetkező időszakban a gondolataid máshol járnak, nem tudsz összpontosítani a teendőidre. \n\nSzeretnéd mások elismerését kivívni, azt szeretnéd érezni, hogy a többiek elégedettek veled. \n\nEmiatt hanyagolod a feladataidat, háttérbe szorítod a kötelezettségeid teljesítését. \n\nEmiatt egyre nő benned a feszültség, minden nehezedre esik. Szerencsére, még időben fogsz lépni és minden nyitott kérdést lezársz.\n\nA megterhelő, de eredményes nap után jöhet megérdemelt pihenés."
+        },
+        {
+            "id": 3939098,
+            "name": "b_02_Taurus_Addendum",
+            "type": "text",
+            "description": "",
+            "value": "C_Légy türelmes, apró lépéseket haladj csak, így észrevétlenül mégiscsak elérheted a céljaidat és végül a kétkedők is belátják majd, hogy szükség volt erre.\n\nHosszabb távon csak így tartható fent a folytatás, de legfőképpen a családi béke érdekében.\n\nAmit elérsz, annak a te kitartásodnak köszönheted, és méltán lehetél büszke a teljesítményedre."
+        },
+        {
+            "id": 3936917,
+            "name": "b_02_Taurus_Base",
+            "type": "text",
+            "description": "",
+            "value": "Mindaddig, amíg a remény lángja ott pislákol benned, addig képes vagy küzdeni.\n\nJönnek majd akadályok, de megbirkózol velük. \n\nEhhez viszont jusson eszedbe, hogy amikor magabiztos voltál és hittél a sikerben, az eredmények sem maradtak el. \n\nEzt kell tenned most is. \n\nAmint a körülötted lévők ezt látni fogják, nem csak inspirálóan fog hatni, de beállnak segíteni neked. \n\nDe ha a kétkedők hangja felerősödne – hiszen az irigyeid sem pihennek – te csak haladj tovább az úton."
+        },
+        {
+            "id": 3939099,
+            "name": "b_03_Gemini_Addendum",
+            "type": "text",
+            "description": "",
+            "value": "Például a szeretteidre, akiket az elmúlt időben kissé elhanyagoltál, mert az elfoglaltságaid miatt gyakran voltál feszült és türelmetlen.\n\nHa találsz kísérőket, akkor könnyebben haladhatsz, és több időt szánhatsz a fontos dolgokra, mint a szeretteidre és a kapcsolataidra.\n\nNe félj kérni segítséget, és ne felejtsd el, hogy mindig van valaki, aki támogatni fog."
+        },
+        {
+            "id": 3936916,
+            "name": "b_03_Gemini_Base",
+            "type": "text",
+            "description": "",
+            "value": "A kapcsolatotoknak csak akkor van még jövője, ha sikerül tisztáznotok a felmerült félreértést. \n\nTedd te is most ezt, emlékezz a közös élményekre, az együtt megélt sikerekre. Ezzel meg is teszed az első lépést a kibékülés felé.\n\nEz nem is áldozat a részedről, ennél sokkal többet veszíthetsz, ha most engeded, hogy ez az apró nézeteltérés közétek éket verjen.\n\nHa most tudsz nyitni a másik felé, akkor lelkileg és szellemileg is hasznos tapasztalattal fogsz gazdagodni."
+        },
+        {
+            "id": 3939100,
+            "name": "b_04_Cancer_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936918,
+            "name": "b_04_Cancer_Base",
+            "type": "text",
+            "description": "",
+            "value": "Miközben rivaldafénybe kerülsz a sikereid révén, azt ne felejtsd el, hogy mindez nem csak a te érdemed.\n\nErőfeszítéseidnek hála jöttek az eredmények, de a támogatóid nélkül nem valósultak volna meg.\n\nAlkalmazkodó késséged miatt, nem lehet nehéz megemlíteni a csapatmunkában rejlő értéket, ami a segítőid lelkére simogatóan hat. \n\nCsak tedd meg! Ezzel eléred, hogy a későbbiekben is számíthatsz rájuk.\n\nAzon túl, hogy méltó jutalom, a közös ünneplés még közelebb hoz egymáshoz."
+        },
+        {
+            "id": 3939101,
+            "name": "b_05_Leo_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936919,
+            "name": "b_05_Leo_Base",
+            "type": "text",
+            "description": "",
+            "value": "Olykor a segítség kritika formájában érkezik. Ha erre nem személy elleni támadásként tekintesz, még építő jellegű is lehet.\n\nHa ilyen visszajelzést kapsz, ne válts védekezési módra, inkább próbáld félre tenni az érzékenységed. \n\nA szavak mögött megfontolandó igazság is állhat, segítő szándék. \n\nA hallottaktól elbizonytalanodsz, miközben csak a helyes irányba próbálnak terelni, de úgy nehéz, hogy te csak ellenségeket látsz.\n\nA belső bizonytalanságoddal kell megbirkóznod."
+        },
+        {
+            "id": 3939102,
+            "name": "b_06_Virgo_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936920,
+            "name": "b_06_Virgo_Base",
+            "type": "text",
+            "description": "",
+            "value": "Ha valakinek, akkor neked tudnod kéne, hogy a tiszteletet kierőszakolni nem lehet, azt ki kell érdemelned.\n\nValahol, valamit elszámoltál. Túl makacs módon igyekeztél az irányítást kézben tartani, ezzel megbántottad azokat, akik valóban fontosak lennének.\n\nCsak gondold át a cselekedeteidet és próbáld meg más eszközökkel elérni, hogy elfogadjanak. \n\nKépes vagy másokat elbűvölni, könnyen megszerzed a támogatásukat. \n\nNem lesz egyszerű, de alázattal és megértéssel menni fog."
+        },
+        {
+            "id": 3939103,
+            "name": "b_07_Libra_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936921,
+            "name": "b_07_Libra_Base",
+            "type": "text",
+            "description": "",
+            "value": "Bőven van már tapasztalatod abban, hogy az első benyomás tévútra vihet.\n\nEzért kerüld ilyen helyzetbe sodródj. Adj időt magadnak, szerezz több információt az adott kérdésről, hogy megfontolt véleményt tudj alkotni.\n\nA rossz megítélések következményei hosszú távúak, már csak ezért sem érdemes kapkodnod, hiszen, ha most helytelenül ítéled meg az adott helyzetet nehéz lesz utólag rendezni a soraidat.\n\nHa nem vagy elég óvatos, akkor bizony megeshet, rögtönzésre kényszerülsz."
+        },
+        {
+            "id": 3939104,
+            "name": "b_08_Scorpio_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936922,
+            "name": "b_08_Scorpio_Base",
+            "type": "text",
+            "description": "",
+            "value": "Bár ez a komfortzónádon kívülre eshet, de most inkább ne tervezz előre. \n\nSodródj az árral!\n\nTudom, hogy így nem látod előre, hogyan alakul majd a napod, cserébe viszont izgalmasabb lehet.\n\nMa a teljesítményed mértéke biztosítja számodra a sikerélményt, nem az elért eredmény. \n\nMár az elégedettséggel tölt el, hogy tudod, keményen oda tetted magad. \n\nAz aggodalmaidat pedig – melyek a veled szemben állított elvárásokból fakadnak – most engedd el."
+        },
+        {
+            "id": 3939105,
+            "name": "b_09_Sagittarius_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936914,
+            "name": "b_09_Sagittarius_Base",
+            "type": "text",
+            "description": "",
+            "value": "Egy csata elvesztése nem jelenti automatikusan a háború elbukását.\n\nElesünk, felállunk és haladunk tovább. \n\nNémi idő elteltével ugyanis észre fogod venni, a célok még mindig ott lebegnek a szemed előtt. \n\nAmíg nem adod fel a reményt, addig minden esélyed megvan ahhoz, hogy azokat megvalósítsd.\n\nA fejlődés és siker kulcsa az erős motiváció, önuralom és akarat. \n\nRajtad múlik, hogyan irányítod az életedet, képes vagy-e talpra állni, mert helyetted nem teheti meg más."
+        },
+        {
+            "id": 3939106,
+            "name": "b_10_Capricorn_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936913,
+            "name": "b_10_Capricorn_Base",
+            "type": "text",
+            "description": "",
+            "value": "Ma egy kicsit meginoghat a saját érzelmi világod. \n\nÉrzed, hogy nem vagy teljesen elégedett önmagaddal. Így, ma nehezedre esik bármi értelmesbe belevágni.  \n\nMinden rosszabbodás végül jóra fordul. Tegyél rendet a lelkedben és a gondolataidban, hogy újra felfelé ívelő pályára kerülj. \n\nTarts önismereti gyakorlatokat, amik megerősítik az önbizalmad, mert ha csak a kudarcok és a csalódások lebegnek a szemed előtt, nem fogsz előrébb lépni.\n\nHagyatkozz bátran az optimizmusodra."
+        },
+        {
+            "id": 3939107,
+            "name": "b_11_Aquarius_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936911,
+            "name": "b_11_Aquarius_Base",
+            "type": "text",
+            "description": "",
+            "value": "Reggel még úgy érzed, hogy képes vagy egyedül is megbirkózni az akadályokkal, de amint összecsapnak a hullámok a fejed felett, elbizonytalanodsz. \n\nPedig ez egy természetes emberi reakció a nehézségek láttán. \n\nNa hagyd, hogy a pánik eluralkodjon rajtad, hiszen a problémák nem értek felkészületlenül. \n\nAmíg nem tudsz megnyugodni, valóban csak egy helyben toporzékolsz és sokat hibázol.\n\nTedd félre az aggodalmaidat, tarts egy rövid szünetet és tisztítsd ki a gondolataidat."
+        },
+        {
+            "id": 3939108,
+            "name": "b_12_Pisces_Addendum",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3936912,
+            "name": "b_12_Pisces_Base",
+            "type": "text",
+            "description": "",
+            "value": "Ne engedd, hogy az indulatok elragadjanak, amíg te nyugodt tudsz maradni, van esély arra, hogy a környezetedben is békét teremts.\n\nŐrizd meg a hideg fejed és a józan gondolkodásod.\n\nMost arra lesz szükség, hogy valaki kézbe vegye az irányítást és megmutassa, merre induljatok.\n\nMaradj határozott, ugyanakkor megértő, hiszen számos igényt kell úgy összefésülnöd, hogy az mindenkinek elfogadható legyen.\n\nÍgy stabilizálni tudod a hangulatodat is."
+        },
+        {
+            "id": 3936908,
+            "name": "b_horoscopeDate",
+            "type": "date",
+            "description": "",
+            "value": "2023-11-29"
+        },
+        {
+            "id": 3939110,
+            "name": "b_midfix",
+            "type": "text",
+            "description": "",
+            "value": "(A folytatáshoz nyomj a Tovább gombra!)"
+        },
+        {
+            "id": 3936909,
+            "name": "b_postfix",
+            "type": "text",
+            "description": "",
+            "value": "(Kérlek nyomj a gombra vagy írj ide valamit, hogy holnap is el tudjam küldeni a horoszkópod!)"
+        },
+        {
+            "id": 3936910,
+            "name": "b_prefix",
+            "type": "text",
+            "description": "",
+            "value": "Szia, kedves"
+        },
+        {
+            "id": 3944567,
+            "name": "b_prefixAfterName",
+            "type": "text",
+            "description": "",
+            "value": null
+        },
+        {
+            "id": 3698127,
+            "name": "NAN_isMonday",
+            "type": "boolean",
+            "description": "",
+            "value": true
+        }
+    ]
+}
