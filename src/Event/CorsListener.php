@@ -13,7 +13,7 @@ class CorsListener implements EventSubscriberInterface
         $response = $event->getResponse();
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
         // Ez azert kell, mert amikor a localhost-rol inditok API 'PUT' hivast a fortunaai.hu domainre, akkor
         // elobb egy 'OPTIONS' hivast indit, aminek kotelezoen 204-es statuszt kell visszaadjon!

@@ -43,12 +43,12 @@ class DailyContent
         return $this->id;
     }
 
-    public function getQuote(): ?DailyQuote
+    public function getQuote(): ?Quote
     {
         return $this->quote;
     }
 
-    public function setQuote(?DailyQuote $quote): self
+    public function setQuote(?Quote $quote): self
     {
         $this->quote = $quote;
 

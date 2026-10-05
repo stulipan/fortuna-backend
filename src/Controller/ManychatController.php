@@ -7,12 +7,16 @@ use App\Entity\Enums;
 use App\Entity\HoroscopeTextPublished;
 use Doctrine\ORM\EntityManagerInterface;
 use GuzzleHttp\Client;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @IsGranted("ROLE_API_USER")
+ */
 class ManychatController extends StulipanBaseController
 {
     /**
@@ -107,9 +111,10 @@ class ManychatController extends StulipanBaseController
         $mergedFields = array_merge($baseFields, $addendumFields, $prefixFields);
         // filter our items that don't have 'field_value' fields
         $fields = array_filter($mergedFields, function ($item) {
-            return isset($item['field_value']);
+            return isset($item['field_value']) && $item['field_value'];
         });
 
+//        dd($mergedFields);
 //        dd($fields);
         $transformedArray = ['fields' => []];
 
@@ -124,6 +129,7 @@ class ManychatController extends StulipanBaseController
             }
         }
 
+//        dd(count($transformedArray['fields']));
 //        dd($transformedArray);
 
         $apiKey = $_ENV['MANYCHAT_TOKEN'];

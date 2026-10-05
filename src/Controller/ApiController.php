@@ -18,9 +18,8 @@ use App\Serializer\TagDenormalizer;
 use App\Services\StulipanPaginator;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\This;
-use PHPUnit\Framework\MockObject\Api;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -36,6 +35,10 @@ use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+/**
+ * @ Security("is_granted('ROLE_API_USER')")
+ * @IsGranted("ROLE_API_USER")
+ */
 class ApiController extends StulipanBaseController
 {
     private $em;
@@ -457,7 +460,7 @@ class ApiController extends StulipanBaseController
      *
      * @Route("/api/horoscope-texts/{textId}/published/", name="api-horoscopeTextPublished-postSingle", methods={"POST"})
      */
-    public function postSingleHoroscopeTextPublished($textId, Request $request, ValidatorInterface $validator)
+    public function horoscopeTextPublished_PostSingle($textId, Request $request, ValidatorInterface $validator)
     {
         $horoscopeText = $this->em->getRepository(HoroscopeText::class)
             ->find($textId)
@@ -491,6 +494,8 @@ class ApiController extends StulipanBaseController
             DateTimeNormalizer::FORMAT_KEY => Enums::DATE_FORMAT,
             'groups' => 'horoscopeText'
         ]);
+
+//        dd($newHoroscopeTextPublished);
 
         $date = $newHoroscopeTextPublished->getPublishDate();
         $sign = $newHoroscopeTextPublished->getAstrologicalSign();
@@ -612,19 +617,21 @@ class ApiController extends StulipanBaseController
      */
     public function tagGetList(Request $request)
     {
-        $signs = $this->em->getRepository(Tag::class)
-            ->findAll()
+        $items = $this->em->getRepository(Tag::class)
+            ->createQueryBuilder('t')
+            ->orderBy('t.name', 'ASC')  // Order by the 'name' field in ascending order
+            ->getQuery()
+            ->getResult()
         ;
 
-        if (empty($signs)) {
-//        if (true) {
+        if (empty($items)) {
             return $this->jsonErrorResponse([
                 'error' => ApiError::RESOURCE_NOT_FOUND,
                 'message' => 'Nem talált cimkéket.',
             ], 404);
         }
 
-        $json = $this->serializer->serialize($signs, 'json', [
+        $json = $this->serializer->serialize($items, 'json', [
             'groups' => 'tags',
             DateTimeNormalizer::FORMAT_KEY => Enums::DATE_FORMAT,
         ]);

@@ -27,6 +27,7 @@ security:
                         password: 'demo'
 #                        password: '$2y$15$6o6IXxoQSjGZvLqU/jGOEOIh272B89TSgRIJAMf7JGq79.KvNOrQ.'
                         roles: 'ROLE_USER'
+
 #    encoders:
 #        Symfony\Component\Security\Core\User\User: plaintext
     firewalls:
@@ -44,7 +45,14 @@ security:
 
         api_area:
             pattern: ^/api
-            security: false
+#            security: false    # ha 'false', akkor nem nézi a következő sorokat
+            stateless: true
+            custom-authenticators:
+                - App\Security\ApiAuthenticatorBearerToken
+#            custom_authenticators:
+#                - App\Security\ApiTokenAuthenticator
+            access_denied_handler: 'App\Security\ApiAccessDeniedHandler'
+
         main:
             lazy: true
             provider: memoriaban_tarolt_userek
@@ -61,8 +69,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/api, roles: ROLE_API_USER }
         - { path: ^/, roles: [ROLE_USER, ROLE_ADMIN] }
-        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY } # Allow access to /api without authentication
+#        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY } # Allow access to /api without authentication
 
 when@test:
     security:
