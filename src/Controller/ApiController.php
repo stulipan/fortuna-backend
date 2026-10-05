@@ -776,12 +776,16 @@ class ApiController extends StulipanBaseController
      */
     public function horoscopeTextPublishedGetDates()
     {
-        $rows = $this->em->createQuery(
-            'SELECT p.publishDate AS publishDate, s.name AS sign
-             FROM App\Entity\HoroscopeTextPublished p
-             JOIN p.astrologicalSign s
-             ORDER BY p.publishDate DESC, s.id ASC'
-        )->getArrayResult();
+        $rows = $this->em
+            ->getRepository(HoroscopeTextPublished::class)
+            ->createQueryBuilder('p')
+            ->select('p.publishDate AS publishDate', 's.name AS sign')
+            ->join('p.astrologicalSign', 's')
+            ->orderBy('p.publishDate', 'DESC')
+            ->addOrderBy('s.id', 'ASC')
+            ->getQuery()
+            ->getArrayResult()
+        ;
 
         // Csoportosítás napok szerint _byClaude
         $dates = [];
