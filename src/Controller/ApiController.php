@@ -770,6 +770,33 @@ class ApiController extends StulipanBaseController
     }
 
     /**
+     * GET LIST: Publikálási napok, naponként a publikált csillagjegyekkel _byClaude
+     *
+     * @Route("/api/horoscope-text-published/dates", name="api-horoscopeTextPublished-getDates", methods={"GET"})
+     */
+    public function horoscopeTextPublishedGetDates()
+    {
+        $rows = $this->em->createQuery(
+            'SELECT p.publishDate AS publishDate, s.name AS sign
+             FROM App\Entity\HoroscopeTextPublished p
+             JOIN p.astrologicalSign s
+             ORDER BY p.publishDate DESC, s.id ASC'
+        )->getArrayResult();
+
+        // Csoportosítás napok szerint _byClaude
+        $dates = [];
+        foreach ($rows as $row) {
+            $date = $row['publishDate']->format(Enums::DATE_FORMAT);
+            if (!isset($dates[$date])) {
+                $dates[$date] = ['publishDate' => $date, 'signs' => []];
+            }
+            $dates[$date]['signs'][] = $row['sign'];
+        }
+
+        return new JsonResponse(array_values($dates), 200);
+    }
+
+    /**
      * GET LIST: Retrieve a list of HoroscopeTextPublished items
      *
      * @Route("/api/horoscope-text-published/", name="api-horoscopeTextPublished-getList", methods={"GET"})
