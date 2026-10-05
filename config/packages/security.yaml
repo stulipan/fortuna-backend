@@ -2,30 +2,21 @@ security:
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
-#        'Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface': 'auto'
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
-#            algorithm: 'bcrypt'
-            algorithm: 'plaintext'
+            algorithm: 'auto'
 
 
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        # Ez volt az eredeti login beallítás, amivel az itt eltárolt usert keresi meg
+        # Belépés: a jelszó hash-e az ADMIN_PASSWORD_HASH env változóban (.env.local)
         memoriaban_tarolt_userek:
             memory:
                 users:
-                # az eredeti jelszó, ami lent kódólva látható (ezt kell beütni): 'demo'
                     admin:
-                        password: 'demo'
-#                        password: '$2y$15$6o6IXxoQSjGZvLqU/jGOEOIh272B89TSgRIJAMf7JGq79.KvNOrQ.'
+                        password: '%env(ADMIN_PASSWORD_HASH)%'
                         roles: ['ROLE_USER', 'ROLE_ADMIN']
                     liviu:
-                        password: 'demo'
-#                        password: '$2y$15$6o6IXxoQSjGZvLqU/jGOEOIh272B89TSgRIJAMf7JGq79.KvNOrQ.'
-                        roles: 'ROLE_USER'
-                    demo:
-                        password: 'demo'
-#                        password: '$2y$15$6o6IXxoQSjGZvLqU/jGOEOIh272B89TSgRIJAMf7JGq79.KvNOrQ.'
+                        password: '%env(ADMIN_PASSWORD_HASH)%'
                         roles: 'ROLE_USER'
 
 #    encoders:
